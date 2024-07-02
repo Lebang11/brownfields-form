@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import styles from "../page.module.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Login() {
@@ -11,10 +11,12 @@ export default function Login() {
     const [name, setName] = useState('');
     const [error, setError] = useState('');
 
+    useEffect(() => {
+      window.localStorage.setItem('user_name', name)
+    }, [name])
 
     const signIn = (name) => {
         if (members.includes(name.trim().toLowerCase())) {
-            window.localStorage.setItem('user_name', name)
             router.push('/', {scroll: false});
             return true;
         } else {

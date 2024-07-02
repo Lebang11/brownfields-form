@@ -1,11 +1,17 @@
 "use client";
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [username, setUsername] = useState('');
+  useEffect(() => {
+    setUsername(window.localStorage.getItem('user_name'));
+  },[])
+
   return (
     <main className={styles.main}>
-      <h4>Welcome {window.localStorage.getItem('user_name')}</h4>
+      <h4>Welcome {username}</h4>
 
 
       <div className="card p-4 bg-transparent border-light">
