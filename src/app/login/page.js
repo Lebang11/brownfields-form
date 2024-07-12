@@ -18,7 +18,7 @@ export default function Login() {
 
     const signIn = (name) => {
         if (members.includes(name.trim().toLowerCase())) {
-            router.push('/', {scroll: false});
+            router.push('/main', {scroll: false});
             return;
         } else {
             setError("name invalid")

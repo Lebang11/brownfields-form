@@ -19,6 +19,14 @@ export default function Login() {
         fetchData()
     }, [])
 
+    useEffect(() => {
+        const username = window.localStorage.getItem("username");
+        if (!username){
+            router.replace('/login', {scroll: false})
+          }
+        
+      },[]);
+
     const fetchData = async () => {
         await axios.get('https://brownfields-server.onrender.com/forms')
         .then((res) => {
