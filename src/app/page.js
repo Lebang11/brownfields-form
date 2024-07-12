@@ -103,7 +103,10 @@ export default function Home() {
             <button className="btn btn-light disabled">Submit</button>
           }
         </form>
+
       </div>
+      <a className="btn btn-outline-warning p-4 w-50" href="/main"> Show stand-ups</a>
+
     </main>
   );
 }

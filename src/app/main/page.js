@@ -42,6 +42,8 @@ export default function Login() {
     return (
     <div className={styles.main}>
         <h2 className="display-2">Stand-ups</h2>
+
+        <a href="/" className="btn btn-outline-info">Create</a>
       
       {
         dbData.map((data) => {
