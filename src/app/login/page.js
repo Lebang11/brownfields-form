@@ -1,9 +1,10 @@
 "use client";
-
 import Image from "next/image";
 import styles from "../page.module.css";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+// import { getCookies, getCookie, setCookie } from "cookies-next";
+// import { cookies } from "next/headers";
 
 export default function Login() {
     const router = useRouter();
@@ -12,16 +13,16 @@ export default function Login() {
     const [error, setError] = useState('');
 
     useEffect(() => {
-      window.localStorage.setItem('user_name', name)
+      localStorage.setItem("username", name)
     }, [name])
 
     const signIn = (name) => {
         if (members.includes(name.trim().toLowerCase())) {
-            router.push('/', {scroll: false});
-            return true;
+            router.back('/', {scroll: false});
+            return;
         } else {
             setError("name invalid")
-            return false;
+            return;
         }
     }
 
